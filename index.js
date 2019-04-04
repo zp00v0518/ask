@@ -4,16 +4,20 @@ const fs = require('fs');
 const path = require('path');
 const config = require('./backend/config/config.js');
 const { createBundleRenderer } = require('vue-server-renderer');
-const { fileReader, mimeType, sendResponse } = require('./backend/template_modules');
-require("./backend/wsServer.js");
+const {
+  fileReader,
+  mimeType,
+  sendResponse,
+  clearCache
+} = require('./backend/template_modules');
+require('./backend/wsServer.js');
 
 const template = require('fs').readFileSync('./src/template.html', 'utf-8');
-
 class Server {
   init(port) {
     this.server = http.createServer();
     this.server.listen(port, () => {
-      // log.log(new Date().toLocaleString());
+      console.log(new Date().toLocaleString());
       console.log(`Сервер запущен по адресу http://localhost:${port}`);
     });
   }
@@ -24,18 +28,6 @@ class Server {
 const server = new Server();
 server.init(config.port.http);
 server.on('request', (req, res) => {
-  let serverBundle = fs.readFileSync(
-    './dist/vue-ssr-server-bundle.json',
-    'utf-8'
-  );
-  serverBundle = JSON.parse(serverBundle);
-  // const serverBundle = require('./dist/vue-ssr-server-bundle.json');
-  const clientManifest = require('./dist/vue-ssr-client-manifest.json');
-
-  const renderer = createBundleRenderer(serverBundle, {
-    template,
-    clientManifest
-  });
   let urlParse = url.parse(req.url, true);
   let pathName = urlParse.path;
   let regPath = /.*js.*|.*img.*|.*style.*|.*ico.*|.*css.*/gi;
@@ -49,6 +41,21 @@ server.on('request', (req, res) => {
     });
     return;
   }
+
+  let serverBundle = fs.readFileSync(
+    './dist/vue-ssr-server-bundle.json',
+    'utf-8'
+  );
+  serverBundle = JSON.parse(serverBundle);
+  // const serverBundle = require('./dist/vue-ssr-server-bundle.json');
+  // const serverBundle = getFile(__dirname, './dist/vue-ssr-server-bundle.json');
+  clearCache(__dirname, './dist/vue-ssr-client-manifest.json');
+  const clientManifest = require('./dist/vue-ssr-client-manifest.json');
+
+  const renderer = createBundleRenderer(serverBundle, {
+    template,
+    clientManifest
+  });
   const context = {
     url: req.url,
     title: 'Headline News'

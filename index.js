@@ -41,14 +41,12 @@ server.on('request', (req, res) => {
     });
     return;
   }
-
+  console.log(`pathName:${pathName}`)
   let serverBundle = fs.readFileSync(
     './dist/vue-ssr-server-bundle.json',
     'utf-8'
   );
   serverBundle = JSON.parse(serverBundle);
-  // const serverBundle = require('./dist/vue-ssr-server-bundle.json');
-  // const serverBundle = getFile(__dirname, './dist/vue-ssr-server-bundle.json');
   clearCache(__dirname, './dist/vue-ssr-client-manifest.json');
   const clientManifest = require('./dist/vue-ssr-client-manifest.json');
 
@@ -58,7 +56,7 @@ server.on('request', (req, res) => {
   });
   const context = {
     url: req.url,
-    title: 'Headline News'
+    title: 'Ask service'
   };
   renderer.renderToString(context, (err, html) => {
     if (err) {

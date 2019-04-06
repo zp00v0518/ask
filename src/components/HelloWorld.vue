@@ -1,5 +1,8 @@
 <template>
-  <div class="hello">mmmm</div>
+  <div class="hello">
+    mmmm
+    <router-link to="About">About</router-link>
+  </div>
 </template>
 
 <script>

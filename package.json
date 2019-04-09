@@ -17,6 +17,7 @@
     "serv": "supervisor --watch backend index.js "
   },
   "dependencies": {
+    "mongodb": "^3.2.3",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.0",

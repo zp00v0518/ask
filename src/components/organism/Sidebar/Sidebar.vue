@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar{
-
+  width: 20%;
+  border: 1px solid green;
 }
 </style>

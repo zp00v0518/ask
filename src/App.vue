@@ -5,6 +5,7 @@
       <Sidebar></Sidebar>
       <router-view/>
     </div>
+    <Vfooter></Vfooter>
   </div>
 </template>
 
@@ -19,6 +20,24 @@ export default {
 
 <style lang="scss">
 body {
+  min-height: 100vh;
+  min-width: 100vw;
   padding-top: $header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#app {
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 45px);
+  flex-grow: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.app__wrap {
+  flex-grow: 4;
+  display: flex;
 }
 </style>

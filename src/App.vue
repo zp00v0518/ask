@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Vheader></Vheader>
-    <div class="app__wrap">
+    <main class="app__wrap">
       <Sidebar></Sidebar>
       <router-view/>
-    </div>
+    </main>
     <Vfooter></Vfooter>
   </div>
 </template>

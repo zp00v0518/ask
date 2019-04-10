@@ -1,12 +1,24 @@
 <template>
-  <header class="sidebar">
-    sidebar
-  </header>
+  <nav class="sidebar">
+   <ul>
+     <li v-for="(item, index) in views" :key="index">
+       <router-link :to="item.url">{{item.label}}</router-link>
+     </li>
+   </ul>
+  </nav>
 </template>
 
 <script>
 export default {
-  name: "Sidebar"
+  name: "Sidebar",
+  data () {
+    return {
+      views: [
+        {label: 'Главная', url:'/'},
+        {label: 'Поддержка', url:'/support'}
+      ]
+    };
+  },
 };
 </script>
 

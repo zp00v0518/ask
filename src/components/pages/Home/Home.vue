@@ -1,18 +1,19 @@
 <template>
   <div class="home">
     home
+    <Vbutton></Vbutton>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Home",
-
+  name: "Home"
 };
 </script>
 
 <style lang="scss" scoped>
-.home{
-
+.home {
+  flex-grow: 5;
+  height: 200vh;
 }
 </style>

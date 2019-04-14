@@ -1,6 +1,6 @@
 <template>
   <nav class="sidebar">
-   <ul>
+   <ul class="sidebar__list">
      <li v-for="(item, index) in views" :key="index">
        <router-link :to="item.url">{{item.label}}</router-link>
      </li>
@@ -26,5 +26,10 @@ export default {
 .sidebar{
   width: 20%;
   border: 1px solid green;
+
+  &__list{
+    position: sticky;
+    top: $header-height;
+  }
 }
 </style>

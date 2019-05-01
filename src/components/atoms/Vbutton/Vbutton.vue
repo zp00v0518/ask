@@ -1,5 +1,5 @@
 <template>
-  <button :style="{backgroundColor: bgColor}" class="btn">{{label}}</button>
+  <button  class="btn">{{label}}</button>
 </template>
 
 <script>
@@ -8,12 +8,8 @@ export default {
   props: {
     label: {
       type: String,
-      default: "Btn"
+      default: ""
     },
-    bgColor: {
-      type: String,
-      default: 'blue'
-    }
   },
   created() {}
 };
@@ -22,8 +18,9 @@ export default {
 <style lang="scss" scoped>
 .btn {
   padding: 5px;
-  width: 50px;
+  min-width: 50px;
   cursor: pointer;
   border-radius: 4px;
+  margin: 5px;
 }
 </style>

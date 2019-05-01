@@ -60,7 +60,8 @@ function startApplication() {
       });
       const context = {
         url: req.url,
-        title: 'Ask service'
+        title: 'Ask service',
+        base: '/'
       };
       renderer.renderToString(context, (err, html) => {
         if (err) {

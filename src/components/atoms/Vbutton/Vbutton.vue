@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">{{label}}</button>
+  <button :style="{backgroundColor: bgColor}" class="btn">{{label}}</button>
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
     label: {
       type: String,
       default: "Btn"
+    },
+    bgColor: {
+      type: String,
+      default: 'blue'
     }
   },
   created() {}
@@ -20,5 +24,6 @@ export default {
   padding: 5px;
   width: 50px;
   cursor: pointer;
+  border-radius: 4px;
 }
 </style>

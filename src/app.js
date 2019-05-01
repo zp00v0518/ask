@@ -3,6 +3,7 @@ import App from './App.vue';
 import { createRouter } from './router';
 import './components/atoms';
 
+
 export function createApp() {
   // Создаём экземпляр маршрутизатора
   const router = createRouter();

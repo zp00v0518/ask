@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     home
-    <Vbutton></Vbutton>
+    <router-link to="/questions/ask" class="link-btn">Задать вопрос</router-link>
   </div>
 </template>
 

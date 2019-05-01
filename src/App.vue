@@ -2,13 +2,12 @@
   <div id="app">
     <Vheader></Vheader>
     <main class="app__wrap">
-      <Reklama></Reklama>
+      <Reklama class="reklama__left"></Reklama>
       <section class="app__container">
         <Sidebar></Sidebar>
         <router-view/>
       </section>
-
-      <Reklama></Reklama>
+      <Reklama class="reklama__right"></Reklama>
     </main>
     <Vfooter></Vfooter>
   </div>
@@ -24,15 +23,18 @@ export default {
 };
 </script>
 
-<style lang="scss">
-body {
-  min-height: 100vh;
-  // min-width: 100vw;
-  padding-top: $header-height;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style lang="scss" scoped>
+.reklama {
+  &__left {
+    @media (max-width: 700px) {
+      display: none;
+    }
+  }
 }
+</style>
+
+<style lang="scss">
+@import "./assets/style/app.scss";
 #app {
   width: 100%;
   height: 100%;

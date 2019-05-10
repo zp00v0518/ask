@@ -1,5 +1,5 @@
 <template>
-  <button  class="btn">{{label}}</button>
+  <button class="btn">{{label}}</button>
 </template>
 
 <script>
@@ -9,9 +9,8 @@ export default {
     label: {
       type: String,
       default: ""
-    },
-  },
-  created() {}
+    }
+  }
 };
 </script>
 

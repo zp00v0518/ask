@@ -16,7 +16,12 @@
         <h2 class="ask__form__body--title">Основная часть</h2>
         <textarea name="body-ask" v-model="question.body" cols="30" rows="10" tabindex="2"></textarea>
       </section>
-      <Vbutton @click.native.prevent="handlerClick" class="link-btn" :label="'Отправить вопрос'"></Vbutton>
+      <Vbutton
+        tabindex="2"
+        @click.native.prevent="handlerClick"
+        class="link-btn"
+        :label="'Отправить вопрос'"
+      ></Vbutton>
     </form>
   </div>
 </template>
@@ -42,6 +47,8 @@ export default {
       api
         .post("/ask", data)
         .then(response => {
+          this.question.title = "";
+          this.question.body = "";
           console.log(response.responseText);
         })
         .catch(err => {

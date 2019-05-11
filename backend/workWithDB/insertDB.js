@@ -4,9 +4,9 @@ const mongo = new connectMongoDB();
 mongo.connect({ dbName: config.db.name });
 
 function insertDB() {
-  //options  - объект с полями:
-  //collectionName = String;
-  //doc = Object;
+  //****/options  - объект с полями:
+  //****/collectionName = String;
+  //****/doc = Object;
   this.one = function(options, callback = function() {}) {
     return new Promise((resolve, reject) => {
       let collection = mongo.open(options.collectionName);

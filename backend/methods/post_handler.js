@@ -1,5 +1,6 @@
 const url = require('url');
 const { reqOn, sendResponse } = require('../template_modules');
+const { insert_question_to_db } = require('../ask')
 
 function post_handler(req, res, startPath) {
   // console.log("********** PostMethod Work ************");
@@ -10,7 +11,8 @@ function post_handler(req, res, startPath) {
       let requestData = JSON.parse(data);
       if (requestData) {
         if (pathName === '/ask') {
-          sendResponse(res, 'ask');
+          insert_question_to_db(req)
+          sendResponse(res, data);
         }
       } else {
         sendResponse(res, '123');
